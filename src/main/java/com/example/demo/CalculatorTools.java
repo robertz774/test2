@@ -11,12 +11,12 @@ import java.util.List;
 @Component
 public class CalculatorTools {
 
-//    @McpTool(name = "add", description = "Add two numbers together")
-//    public int add(
-//            @McpToolParam(description = "First number", required = true) int a,
-//            @McpToolParam(description = "Second number", required = true) int b) {
-//        return a + b;
-//    }
+    @McpTool(name = "add", description = "Add two numbers together")
+    public int add(
+            @McpToolParam(description = "First number", required = true) int a,
+            @McpToolParam(description = "Second number", required = true) int b) {
+        return a + b;
+    }
 
     @McpTool(name = "search", description = "search description" )
     public Results search(
