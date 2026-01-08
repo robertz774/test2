@@ -207,6 +207,9 @@ public class CalculatorTools {
                 "document.getElementById('box5').innerHTML = window.openai;" +
                 "document.getElementById('box6').innerHTML = 'last one';" +
                 "console.log('e');" +
+                "window.openai?.sendFollowUpMessage({\n" +
+                "  prompt: \"Draft a tasting itinerary for the pizzerias I favorited.\",\n" +
+                "});" +
                 "</script>";
     }
 
