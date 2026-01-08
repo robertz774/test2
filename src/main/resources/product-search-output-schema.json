@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "term1": {
+      "description": "Name of product",
+      "type": "string"
+    }
+  },
+  "required": [
+    "term1"
+  ],
+  "type": "object"
+}

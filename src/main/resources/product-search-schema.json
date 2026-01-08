@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "term": {
+      "description": "Term used to search product by",
+      "type": "string"
+    }
+  },
+  "required": [
+    "term"
+  ],
+  "type": "object"
+}
