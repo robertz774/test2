@@ -175,7 +175,10 @@ public class CalculatorTools {
 //                "</html>";
 //
 //    }
-    @McpResource(uri = "ui://widget/product-carousel.html")
+    @McpResource(
+            uri = "ui://widget/product-carousel.html",
+            mimeType = "text/html+skybridge",
+            title = "product-carousel title123")
     public String productCarousel(McpSchema.ReadResourceRequest request) {
         return "<script>" +
 
