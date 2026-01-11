@@ -12,7 +12,6 @@ import org.springframework.boot.actuate.web.exchanges.InMemoryHttpExchangeReposi
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,8 +32,9 @@ public class DemoApplication {
 //
 //        Map<String, Object> meta = new HashMap<>();
 //        meta.put("openai/outputTemplate", "ui://widget/chatgpt-app-todo.html");
-////        meta.put("openai/toolInvocation/invoking", "Creating task...");
-////        meta.put("openai/toolInvocation/invoked", "Task created");
+
+    /// /        meta.put("openai/toolInvocation/invoking", "Creating task...");
+    /// /        meta.put("openai/toolInvocation/invoked", "Task created");
 //
 //        JacksonMcpJsonMapper jacksonMcpJsonMapper = new JacksonMcpJsonMapper(new ObjectMapper());
 //
@@ -70,7 +70,6 @@ public class DemoApplication {
 //        });
 //        return List.of(gameListSpec); // #4
 //    }
-
     @Bean
     public List<McpServerFeatures.SyncToolSpecification> productSearch() {
 
@@ -83,7 +82,7 @@ public class DemoApplication {
                 .description("Search products by term")
                 .inputSchema(new JacksonMcpJsonMapper(new ObjectMapper()), ResourceLoaderUtil.loadAsString("product-search-schema.json"))
                 .outputSchema(new JacksonMcpJsonMapper(new ObjectMapper()), ResourceLoaderUtil.loadAsString("product-search-output-schema.json"))
-//                .annotations(new ToolAnnotations("product search annotation title", true, false, false, false, false))
+                .annotations(new ToolAnnotations("product search annotation title", true, false, false, false, false))
                 .meta(meta)
                 .build();
         var gameListSpec = new McpServerFeatures.SyncToolSpecification( // #3
@@ -91,7 +90,7 @@ public class DemoApplication {
             System.out.println("sout pole:1234 sout");
             System.out.println("sout pole:1234 sout");
             return McpSchema.CallToolResult.builder()
-                    .structuredContent(new JacksonMcpJsonMapper(new ObjectMapper()),"{\"term1\":\"gitara1\"}")
+                    .structuredContent(new JacksonMcpJsonMapper(new ObjectMapper()), "{\"term1\":\"gitara1\"}")
 //                    .addTextContent("txtCont")
                     .build();
         });
