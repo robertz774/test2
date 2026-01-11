@@ -82,7 +82,7 @@ public class DemoApplication {
                 .description("Search products by term")
                 .inputSchema(new JacksonMcpJsonMapper(new ObjectMapper()), ResourceLoaderUtil.loadAsString("product-search-schema.json"))
                 .outputSchema(new JacksonMcpJsonMapper(new ObjectMapper()), ResourceLoaderUtil.loadAsString("product-search-output-schema.json"))
-                .annotations(new ToolAnnotations("product search annotation title", true, false, false, false, false))
+                //.annotations(new ToolAnnotations("product search annotation title", true, false, false, false, false))
                 .meta(meta)
                 .build();
         var gameListSpec = new McpServerFeatures.SyncToolSpecification( // #3
