@@ -223,8 +223,8 @@ public class CalculatorTools {
                 text,
                 Map.of(
                         "openai/widgetPrefersBorder",true,
-                        "openai/widgetDomain","https://chatgpt.com",
-                        "openai/widgetCSP","{}"
+                        "openai/widgetDomain","https://chatgpt.com"
+//                        "openai/widgetCSP","{}"
                 ));
         return new ReadResourceResult(List.of(textResourceContents));
     }
