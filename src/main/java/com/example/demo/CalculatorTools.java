@@ -2,10 +2,15 @@ package com.example.demo;
 
 
 import io.modelcontextprotocol.spec.McpSchema;
+import io.modelcontextprotocol.spec.McpSchema.ReadResourceResult;
+import io.modelcontextprotocol.spec.McpSchema.TextResourceContents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springaicommunity.mcp.annotation.McpResource;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Map;
 
 @Component
 public class CalculatorTools {
@@ -179,8 +184,8 @@ public class CalculatorTools {
             uri = "ui://widget/product-carousel.html",
             mimeType = "text/html+skybridge",
             title = "product-carousel title123")
-    public String productCarousel(McpSchema.ReadResourceRequest request) {
-        return "<script>" +
+    public ReadResourceResult productCarousel(McpSchema.ReadResourceRequest request) {
+        String text = "<script>" +
 
                 "console.log(window.openai?.toolInput);" +
                 "console.log(window.openai?.toolOutput);" +
@@ -212,6 +217,16 @@ public class CalculatorTools {
                 "console.log('e');" +
 //                "window.openai?.sendFollowUpMessage({\"prompt\": \"Draft a tasting itinerary for the pizzerias I favorited.\"});" +
                 "</script>";
+        TextResourceContents textResourceContents=new TextResourceContents(
+                "ui://widget/product-carousel.html",
+                "text/html+skybridge",
+                text,
+                Map.of(
+                        "openai/widgetPrefersBorder",true,
+                        "openai/widgetDomain","https://chatgpt.com",
+                        "openai/widgetCSP","{}"
+                ));
+        return new ReadResourceResult(List.of(textResourceContents));
     }
 
 //    @McpResource(uri = "ui://widget/chatgpt-app-todo.html",
