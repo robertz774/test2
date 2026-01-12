@@ -2,6 +2,7 @@
   {
     "product": {
       "name": "skoda",
+      "description": "economic family car",
       "color": "red",
       "price": "50000"
     }
@@ -9,6 +10,7 @@
   {
     "product": {
       "name": "audi",
+      "description": "fast but expensive",
       "color": "black",
       "price": "100000"
     }
