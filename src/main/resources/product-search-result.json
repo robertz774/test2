@@ -3,14 +3,14 @@
     "product": {
       "name": "skoda",
       "color": "red",
-      "price": "string"
+      "price": "50000"
     }
   },
   {
     "product": {
       "name": "audi",
       "color:": "black",
-      "price": "string"
+      "price": "100000"
     }
   }
 ]
