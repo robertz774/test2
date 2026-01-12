@@ -89,8 +89,6 @@ public class DemoApplication {
                 .build();
         var gameListSpec = new McpServerFeatures.SyncToolSpecification( // #3
                 tool, (exchange, request) -> {
-            System.out.println("sout pole:1234 sout");
-            System.out.println("sout pole:1234 sout");
             return McpSchema.CallToolResult.builder()
                     .structuredContent(new JacksonMcpJsonMapper(new ObjectMapper()), "{\"term1\":\"gitara1\"}")
 //                    .addTextContent("txtCont")
