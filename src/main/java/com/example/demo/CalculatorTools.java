@@ -235,9 +235,11 @@ public class CalculatorTools {
             mimeType = "text/html+skybridge",
             title = "product-carousel2 title123")
     public ReadResourceResult productCarousel2(McpSchema.ReadResourceRequest request) {
-        String text = "<div id=\"kanban-root\"></div>" +
-                "<style>${CSS}</style>" +
-                "<script type=\"module\">${HTML}</script>";
+        String componentCss = ResourceLoaderUtil.loadAsString("component.css");
+        String componentJs = ResourceLoaderUtil.loadAsString("component.js");
+        String text = "<div id=\"root\"></div>" +
+                "<style>"+componentCss+"</style>" +
+                "<script type=\"module\">"+componentJs+"</script>";
 
         TextResourceContents textResourceContents = new TextResourceContents(
                 "ui://widget/product-carousel2.html",

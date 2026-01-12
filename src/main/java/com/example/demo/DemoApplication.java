@@ -74,7 +74,7 @@ public class DemoApplication {
     public List<McpServerFeatures.SyncToolSpecification> productSearch() {
 
         Map<String, Object> meta = Map.of(
-                "openai/outputTemplate", "ui://widget/product-carousel.html",
+                "openai/outputTemplate", "ui://widget/product-carousel2.html",
                 "openai/resultCanProduceWidget", true,
                 "openai/widgetAccessible", true
         );
