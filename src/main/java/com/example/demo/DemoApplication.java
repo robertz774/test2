@@ -74,10 +74,12 @@ public class DemoApplication {
     public List<McpServerFeatures.SyncToolSpecification> productSearch() {
 
         Map<String, Object> meta = Map.of(
-                "openai/outputTemplate", "ui://widget/product-carousel.html"
+                "openai/outputTemplate", "ui://widget/product-carousel.html",
+                "openai/resultCanProduceWidget", true,
+                "openai/widgetAccessible", true
         );
 
-        var gameListResource = new Tool.Builder()
+        var tool = new Tool.Builder()
                 .name("product search")
                 .description("Search products by term")
                 .inputSchema(new JacksonMcpJsonMapper(new ObjectMapper()), ResourceLoaderUtil.loadAsString("product-search-schema.json"))
@@ -86,7 +88,7 @@ public class DemoApplication {
                 .meta(meta)
                 .build();
         var gameListSpec = new McpServerFeatures.SyncToolSpecification( // #3
-                gameListResource, (exchange, request) -> {
+                tool, (exchange, request) -> {
             System.out.println("sout pole:1234 sout");
             System.out.println("sout pole:1234 sout");
             return McpSchema.CallToolResult.builder()
