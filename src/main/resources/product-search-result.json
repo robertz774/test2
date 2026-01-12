@@ -1,0 +1,16 @@
+[
+  {
+    "product": {
+      "name": "skoda",
+      "color": "red",
+      "price": "string"
+    }
+  },
+  {
+    "product": {
+      "name": "audi",
+      "color:": "black",
+      "price": "string"
+    }
+  }
+]

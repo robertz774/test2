@@ -5,7 +5,6 @@ import io.modelcontextprotocol.json.jackson.JacksonMcpJsonMapper;
 import io.modelcontextprotocol.server.McpServerFeatures;
 import io.modelcontextprotocol.spec.McpSchema;
 import io.modelcontextprotocol.spec.McpSchema.Tool;
-import io.modelcontextprotocol.spec.McpSchema.ToolAnnotations;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.web.exchanges.HttpExchangeRepository;
 import org.springframework.boot.actuate.web.exchanges.InMemoryHttpExchangeRepository;
@@ -70,32 +69,32 @@ public class DemoApplication {
 //        });
 //        return List.of(gameListSpec); // #4
 //    }
-    @Bean
-    public List<McpServerFeatures.SyncToolSpecification> productSearch() {
-
-        Map<String, Object> meta = Map.of(
-                "openai/outputTemplate", "ui://widget/product-carousel2.html",
-                "openai/resultCanProduceWidget", true,
-                "openai/widgetAccessible", true
-        );
-
-        var tool = new Tool.Builder()
-                .name("product search")
-                .description("Search products by term")
-                .inputSchema(new JacksonMcpJsonMapper(new ObjectMapper()), ResourceLoaderUtil.loadAsString("product-search-schema.json"))
-                .outputSchema(new JacksonMcpJsonMapper(new ObjectMapper()), ResourceLoaderUtil.loadAsString("product-search-output-schema.json"))
-                //.annotations(new ToolAnnotations("product search annotation title", true, false, false, false, false))
-                .meta(meta)
-                .build();
-        var gameListSpec = new McpServerFeatures.SyncToolSpecification( // #3
-                tool, (exchange, request) -> {
-            return McpSchema.CallToolResult.builder()
-                    .structuredContent(new JacksonMcpJsonMapper(new ObjectMapper()), "{\"term1\":\"gitara1\"}")
-//                    .addTextContent("txtCont")
-                    .build();
-        });
-        return List.of(gameListSpec); // #4
-    }
+//    @Bean
+//    public List<McpServerFeatures.SyncToolSpecification> productSearch() {
+//
+//        Map<String, Object> meta = Map.of(
+//                "openai/outputTemplate", "ui://widget/product-carousel2.html",
+//                "openai/resultCanProduceWidget", true,
+//                "openai/widgetAccessible", true
+//        );
+//
+//        var tool = new Tool.Builder()
+//                .name("product search")
+//                .description("Search products by term")
+//                .inputSchema(new JacksonMcpJsonMapper(new ObjectMapper()), ResourceLoaderUtil.loadAsString("product-search-input-schema.json"))
+//                .outputSchema(new JacksonMcpJsonMapper(new ObjectMapper()), ResourceLoaderUtil.loadAsString("product-search-output-schema.json"))
+//                //.annotations(new ToolAnnotations("product search annotation title", true, false, false, false, false))
+//                .meta(meta)
+//                .build();
+//        var gameListSpec = new McpServerFeatures.SyncToolSpecification( // #3
+//                tool, (exchange, request) -> {
+//            return McpSchema.CallToolResult.builder()
+//                    .structuredContent(new JacksonMcpJsonMapper(new ObjectMapper()), "{\"term1\":\"gitara1\"}")
+////                    .addTextContent("txtCont")
+//                    .build();
+//        });
+//        return List.of(gameListSpec); // #4
+//    }
 
 //    @Bean
 //    public List<McpServerFeatures.SyncResourceSpecification>

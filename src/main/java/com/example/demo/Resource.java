@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class CalculatorTools {
+public class Resource {
     private static final Logger LOGGER = LoggerFactory.getLogger("com.example.demo.CalculatorTools");
 
 //    @McpTool(name = "add", description = "Add two numbers together")
