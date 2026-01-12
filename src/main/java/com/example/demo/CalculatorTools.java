@@ -194,6 +194,7 @@ public class CalculatorTools {
                 "</script>" +
                 "<div>" +
                 "   <h1>Task Tracker1</h1>" +
+                "<img src='https://www.gstatic.com/marketing-cms/assets/images/75/98/d7a4a1254760b96d76382879c575/products-homepage-card.png'/>"+
                 "   <h1>" + request + "</h1>" +
                 "   <p>Stay organized and productive4</p>" +
                 "</div>" +
@@ -223,7 +224,7 @@ public class CalculatorTools {
                 text,
                 Map.of(
                         "openai/widgetPrefersBorder",true,
-                        "openai/widgetDomain","https://chatgpt.com"
+                        "openai/widgetDomain","https://google.com"
 //                        "openai/widgetCSP","{}"
                 ));
         return new ReadResourceResult(List.of(textResourceContents));
