@@ -194,7 +194,7 @@ public class CalculatorTools {
                 "</script>" +
                 "<div>" +
                 "   <h1>Task Tracker1</h1>" +
-                "<img src='https://www.gstatic.com/marketing-cms/assets/images/75/98/d7a4a1254760b96d76382879c575/products-homepage-card.png'/>"+
+                "<img src='https://www.gstatic.com/marketing-cms/assets/images/75/98/d7a4a1254760b96d76382879c575/products-homepage-card.png'/>" +
                 "   <h1>" + request + "</h1>" +
                 "   <p>Stay organized and productive4</p>" +
                 "</div>" +
@@ -218,14 +218,34 @@ public class CalculatorTools {
                 "console.log('e');" +
 //                "window.openai?.sendFollowUpMessage({\"prompt\": \"Draft a tasting itinerary for the pizzerias I favorited.\"});" +
                 "</script>";
-        TextResourceContents textResourceContents=new TextResourceContents(
+        TextResourceContents textResourceContents = new TextResourceContents(
                 "ui://widget/product-carousel.html",
                 "text/html+skybridge",
                 text,
                 Map.of(
-                        "openai/widgetPrefersBorder",true,
-                        "openai/widgetDomain","https://google.com"
+                        "openai/widgetPrefersBorder", true,
+                        "openai/widgetDomain", "https://google.com"
 //                        "openai/widgetCSP","{}"
+                ));
+        return new ReadResourceResult(List.of(textResourceContents));
+    }
+
+    @McpResource(
+            uri = "ui://widget/product-carousel2.html",
+            mimeType = "text/html+skybridge",
+            title = "product-carousel2 title123")
+    public ReadResourceResult productCarousel2(McpSchema.ReadResourceRequest request) {
+        String text = "<div id=\"kanban-root\"></div>" +
+                "<style>${CSS}</style>" +
+                "<script type=\"module\">${HTML}</script>";
+
+        TextResourceContents textResourceContents = new TextResourceContents(
+                "ui://widget/product-carousel2.html",
+                "text/html+skybridge",
+                text,
+                Map.of(
+                        "openai/widgetPrefersBorder", true,
+                        "openai/widgetDomain", "https://google.com"
                 ));
         return new ReadResourceResult(List.of(textResourceContents));
     }
