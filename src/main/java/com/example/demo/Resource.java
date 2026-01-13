@@ -235,9 +235,9 @@ public class Resource {
             mimeType = "text/html+skybridge",
             title = "product-carousel2 title123")
     public ReadResourceResult productCarousel2(McpSchema.ReadResourceRequest request) {
-        String componentCss = ResourceLoaderUtil.loadAsString("kitchen-sink-lite.css");
-        String componentJs = ResourceLoaderUtil.loadAsString("kitchen-sink-lite.js");
-        String text = "<div id=\"kitchen-sink-lite-root\"></div>" +
+        String componentCss = ResourceLoaderUtil.loadAsString("index.css");
+        String componentJs = ResourceLoaderUtil.loadAsString("index.js");
+        String text = "<div id=\"root\"></div>" +
                 "<style>"+componentCss+"</style>" +
                 "<script type=\"module\">"+componentJs+"</script>";
 
